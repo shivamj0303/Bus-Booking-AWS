@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Bus</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/css/styles.css' %}">
+</head>
+<body class="login">
+     <!-- Navigation Bar -->
+     <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'booking/images/logo.png' %}" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'search_bus' %}">Search Buses</a></li>
+                <li><a href="{% url 'register_bus' %}">Register Bus</a></li>
+                <li><a href="{% url 'register_agency' %}">Register Agency</a></li>
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn">Login</a>
+                    <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    <div class="container" id="register-agency-custom">
+        <form method="post" id="busForm">
+            {% csrf_token %}
+            <h2>Register a New Bus</h2>
+            <div class="input-group">
+                {{ form.bus_number.label_tag }}
+                {{ form.bus_number }}
+            </div>
+            <div class="input-group">
+                {{ form.agency_name.label_tag }}
+                {{ form.agency_name }}
+            </div>
+            <div class="input-group">
+                {{ form.agency_id.label_tag }}
+                {{ form.agency_id }}
+            </div>
+            <div class="input-group">
+                {{ form.source.label_tag }}
+                {{ form.source }}
+            </div>
+            <div class="input-group">
+                {{ form.destination.label_tag }}
+                {{ form.destination }}
+            </div>
+            <div class="input-group">
+                {{ form.source_date.label_tag }} 
+                {{ form.source_date }}
+                {{ form.source_time.label_tag }}
+                {{ form.source_time }}
+            </div>
+            <div class="input-group">
+                {{ form.destination_date.label_tag }} 
+                {{ form.destination_date }}
+                {{ form.destination_time.label_tag }} 
+                {{ form.destination_time }}
+            </div>
+            <div class="input-group">
+                {{ form.total_seats.label_tag }}
+                {{ form.total_seats }}
+            </div>
+            <button type="submit">Register Bus</button>
+            <p class="message"><a href="{% url 'home' %}">Back to Home</a></p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking System</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+     <!-- Navigation Bar -->
+     <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'booking/images/logo.png' %}" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'search_bus' %}">Search Buses</a></li>
+                <li><a href="{% url 'register_bus' %}">Register Bus</a></li>
+                <li><a href="{% url 'register_agency' %}">Register Agency</a></li>
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn">Login</a>
+                    <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section class="hero" style="background: url('/static/booking/images/bg.jpeg') center center / cover no-repeat;">
+            <div class="hero-content">
+                <h1>EXPRESS TRAVELS</h1>
+                <p>Express Travel Agency: Your Journey, Our Priority With a well-established network of routes connecting major cities and towns</p>
+                <a href="{% url 'search_bus' %}" class="btn-primary">Book Tickets</a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="about-us">
+            <h2>ABOUT US</h2>
+            <p>Welcome to Express Travel Agency, your premier partner for efficient and comfortable travel solutions. Established with a vision to redefine the travel experience, we specialize in providing seamless and stress-free journeys to destinations near and far.
+               At Express Travel Agency, we understand that travel is more than just reaching a destination—it's about the experience along the way. Our fleet of modern buses and transportation options is designed with your comfort in mind. From luxurious reclining seats and cutting-edge entertainment systems to free Wi-Fi and on-demand refreshments, we ensure that every aspect of your journey is enjoyable and relaxing.
+               Our commitment to excellence is reflected in our punctuality, professional staff, and top-notch customer service. Whether you're embarking on a long-distance adventure or a quick city trip.</p>
+        </section>
+
+<!-- Categories Section -->
+<section class="categories">
+    <h2>OUR CATEGORIES</h2>
+    <div class="cards">
+        <div class="card" style="background-image: url('{% static 'booking/images/volvo.jpg' %}')">
+            <div class="overlay">
+                <h3>Volvo</h3>
+            </div>
+        </div>
+        <div class="card" style="background-image: url('{% static 'booking/images/premium.webp' %}')">
+            <div class="overlay">
+                <h3>Premium</h3>
+            </div>
+        </div>
+        <div class="card" style="background-image: url('{% static 'booking/images/sleeper.jpg' %}')">
+            <div class="overlay">
+                <h3>Sleeper</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <h2>OUR SERVICES</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Air conditioning</h3>
+                    <p>Traveling by AC bus offers a unique blend of comfort, convenience, and luxury, making it the ideal choice for long-distance journeys. The air-conditioned environment ensures a cool and refreshing atmosphere, regardless of the weather outside, allowing passengers to relax and enjoy their trip without the discomfort of heat or humidity.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Free wifi</h3>
+                    <p>Traveling with free Wi-Fi on a bus transforms the journey into a productive and enjoyable experience. With free Wi-Fi, you can catch up on work, respond to emails, or attend virtual meetings, all while on the move. For those seeking entertainment, streaming your favorite shows, browsing social media, or listening to music becomes effortless.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Refreshments and snacks</h3>
+                    <p>Refreshments and snacks on a bus can significantly enhance the travel experience, making the journey more pleasant and satisfying. Whether you're on a long-distance trip or a short commute, having access to light snacks and beverages adds a touch of convenience and comfort.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Reclining seats</h3>
+                    <p>Reclining seats on a bus are a game-changer for comfort, especially on long journeys. These seats are designed to provide adjustable support, allowing passengers to lean back and relax at a comfortable angle.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Charging ports</h3>
+                    <p>Charging ports on a bus add a vital layer of convenience, ensuring that passengers can keep their electronic devices powered throughout the journey. Whether you're traveling for business or leisure, staying connected is essential, and having access to USB.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Entertainment systems</h3>
+                    <p>Entertainment systems on buses provide passengers with a range of options to keep themselves engaged and entertained throughout the journey. These systems typically include individual or shared screens offering a selection of movies, TV shows, music, and sometimes even games.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>&copy; 2024 Bus Booking System. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <div class="contact-info">
+                <p>Contact Us:</p>
+                <ul>
+                    <li><a href="mailto:info@busbooking.com">info@busbooking.com</a></li>
+                    <li><a href="tel:+1234567890">+1 234 567 890</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    {% load static %}
+    <script src="{% static 'booking/js/scripts.js' %}"></script>
+</body>
+</html>

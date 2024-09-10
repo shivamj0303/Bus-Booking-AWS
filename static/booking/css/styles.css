@@ -1,0 +1,814 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: #f5f5f5;
+}
+
+/* Navigation Bar */
+header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+nav .logo img {
+    height: 40px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav .nav-links li {
+    margin: 0;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav .nav-links a:hover {
+    color: #9b59b6;
+}
+
+nav .auth-buttons .btn {
+    text-decoration: none;
+    color: white;
+    background: #9b59b6;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+nav .auth-buttons .btn:hover {
+    background: #88429c;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+    }
+}
+
+
+/* Hero Section */
+.hero {
+    position: relative; /* Make sure the container is positioned relatively */
+    background: url('/static/booking/images/bg.jpeg') center center / cover no-repeat;
+    color: white;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden; /* Ensure the overlay does not overflow */
+}
+
+.hero::before {
+    content: ''; /* Required for pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1; /* Ensure the overlay is above the background image but below the content */
+}
+
+.hero-content {
+    position: relative; /* Ensure the content is above the overlay */
+    z-index: 2;
+}
+
+
+.hero-content {
+    max-width: 800px; /* Increased width */
+}
+
+.hero h1 {
+    font-size: 48px; /* Larger heading */
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 22px; /* Larger paragraph text */
+    margin-bottom: 30px;
+}
+
+.hero .btn-primary {
+    text-decoration: none;
+    color: white;
+    background: #9b59b6;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.hero .btn-primary:hover {
+    background: #88429c;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+        padding: 0 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .hero-content p {
+        font-size: 18px;
+    }
+}
+
+
+/* About Us Section */
+.about-us {
+    background: white;
+    padding: 60px 20px; /* Added more padding for better spacing */
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 32px; /* Increased font size */
+    margin-bottom: 20px;
+    color: #9b59b6; /* Consistent with the theme */
+}
+
+.about-us p {
+    font-size: 18px; /* Slightly larger text for readability */
+    line-height: 1.8;
+    max-width: 900px; /* Limit the width of the text */
+    margin: 0 auto;
+}
+
+/* Categories Section */
+.categories {
+    background: #f5f5f5;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.categories h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #9b59b6;
+    font-weight: bold;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 200px; /* Adjust height for a better aspect ratio */
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensures overlay does not extend beyond the card */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+.card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark transparent overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.card:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.card h3 {
+    font-size: 26px; /* Larger heading */
+    margin: 0;
+    font-weight: bold;
+}
+
+.card p {
+    display: none; /* Hide paragraph text to focus on overlay content */
+}
+
+
+
+/* Background Images */
+.card.volvo {
+    background-image: url('/static/booking/images/volvo.jpg');
+}
+
+.card.premium {
+    background-image: url('/static/booking/images/premium.jpg');
+}
+
+.card.sleeper {
+    background-image: url('/static/booking/images/sleeper.jpg');
+}
+
+
+/* Services Section */
+.services {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.services h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #9b59b6;
+    font-weight: bold;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    margin-top: auto;
+    width: 100%;
+    bottom: 0;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+}
+
+.footer-left {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-right {
+    flex: 2;
+    text-align: right;
+}
+
+.contact-info {
+    margin-bottom: 10px; /* Reduce margin to make space for icons */
+}
+
+.contact-info p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #9b59b6;
+}
+
+.social-media {
+    text-align: right; /* Align to the right */
+    margin-top: 10px; /* Add some space above icons */
+}
+
+.social-media a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px; /* Increase icon size */
+    transition: color 0.3s;
+    margin-left: 15px; /* Space between icons */
+}
+
+.social-media a:first-child {
+    margin-left: 0;
+}
+
+.social-media a:hover {
+    color: #9b59b6;
+}
+
+
+.login {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#register-agency-custom{
+    margin-top: 100px;
+}
+
+.container {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #9b59b6;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #88429c;
+}
+
+.message {
+    text-align: center;
+    margin-top: 15px;
+    color: #777;
+}
+
+.message a {
+    color: #9b59b6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.message a:hover {
+    color: #6d3d87;
+}
+/* Specific Page Styles */
+.signup {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup .container,
+.search .container,
+.book-seat .container {
+    max-width: 450px;
+}
+
+.search .container,
+.book-seat .container {
+    padding-top: 80px; /* Add space for the fixed header */
+}
+
+.bus-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.bus-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bus-item strong {
+    color: #9b59b6;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: #9b59b6;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.btn-link:hover {
+    color: #88429c;
+}
+
+.no-bus {
+    color: #999;
+    font-style: italic;
+}
+
+
+/* Specific Styles for Book Seat Page */
+.book-seat {
+    background: #f5f5f5;
+    padding-top: 100px; /* Add space for the fixed header */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.book-seat .container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+}
+
+.book-seat h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.book-seat .input-group {
+    margin-bottom: 20px;
+}
+
+.book-seat .input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.book-seat .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.book-seat .input-group input:focus {
+    border-color: #9b59b6;
+    outline: none;
+}
+
+.book-seat button {
+    width: 100%;
+    padding: 15px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.book-seat button:hover {
+    background: #88429c;
+}
+
+.book-seat .btn-link {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: #9b59b6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.book-seat .btn-link:hover {
+    color: #6d3d87;
+}
+
+/* General Styles for New Pages */
+.about-us, .contact-us {
+    background: #f5f5f5;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-us h2, .contact-us h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.contact-us form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us .input-group {
+    margin-bottom: 15px;
+}
+
+.contact-us .input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.contact-us .input-group input, .contact-us .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.contact-us .input-group input:focus, .contact-us .input-group textarea:focus {
+    border-color: #9b59b6;
+    outline: none;
+}
+
+.contact-us button {
+    width: 100%;
+    padding: 10px;
+    background: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-us button:hover {
+    background: #88429c;
+}
+
+
+/* register agnecy */
+
+       /* Specific Styles for Register Agency Page */
+       .register-agency {
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .register-agency .container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .register-agency h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .register-agency form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .register-agency .input-group {
+        margin-bottom: 15px;
+    }
+
+    .register-agency .input-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .register-agency .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+
+    .register-agency .input-group input:focus {
+        border-color: #9b59b6;
+        outline: none;
+    }
+
+    .register-agency button {
+        padding: 15px;
+        background: #9b59b6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .register-agency button:hover {
+        background: #88429c;
+    }
+
+    .register-agency .message {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Agency Registration Success Page */
+.registration-success {
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.registration-success .container {
+    background: white;
+    padding: 30px 50px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.registration-success h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.registration-success p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.registration-success .btn-primary {
+    text-decoration: none;
+    color: white;
+    background: #9b59b6;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s;
+    display: inline-block;
+}
+
+.registration-success .btn-primary:hover {
+    background: #88429c;
+}

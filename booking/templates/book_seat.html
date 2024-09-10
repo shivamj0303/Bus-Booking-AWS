@@ -1,0 +1,119 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Book Seat</title>
+</head>
+<body>
+    <h1>Book a Seat on Bus {{ bus.bus_number }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book Seat</button>
+    </form>
+    <a href="{% url 'search_bus' %}">Back to Search</a>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Seat</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/css/styles.css' %}">
+</head>
+<body class="login">
+    <header>
+        <nav>
+            <div class="logo">
+                
+                <img src="{% static 'booking/images/logo.png' %}" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'register_bus' %}">Register Bus</a></li>
+                <li><a href="{% url 'search_bus' %}">Search Buses</a></li>
+
+            </ul>
+            <div class="auth-buttons">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn">Login</a>
+                    <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Book a Seat on Bus {{ bus.bus_number }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Book Seat</button>
+        </form>
+        <a href="{% url 'search_bus' %}" class="btn-link">Back to Search</a>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Seat</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/css/styles.css' %}">
+</head>
+<body class="book-seat">
+     <!-- Navigation Bar -->
+     <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'booking/images/logo.png' %}" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'search_bus' %}">Search Buses</a></li>
+                <li><a href="{% url 'register_bus' %}">Register Bus</a></li>
+                <li><a href="{% url 'register_agency' %}">Register Agency</a></li>
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="btn">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn">Login</a>
+                    <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Book a Seat on Bus {{ bus.bus_number }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="input-group">
+                <label for="seat_number">Seat Number</label>
+                {{ form.seat_number }}
+            </div>
+            <div class="input-group">
+                <label for="passenger_name">Passenger Name</label>
+                {{ form.passenger_name }}
+            </div>
+            <div class="input-group">
+                <label for="contact_number">Contact Number</label>
+                {{ form.contact_number }}
+            </div>
+            <button type="submit">Book Seat</button>
+        </form>
+        <a href="{% url 'search_bus' %}" class="btn-link">Back to Search</a>
+    </div>
+
+</body>
+</html>

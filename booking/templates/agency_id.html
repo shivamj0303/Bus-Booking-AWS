@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Registration Successful</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/css/styles.css' %}">
+</head>
+<body>
+    <!-- Main Content -->
+    <main class="registration-success">
+        <div class="container">
+            <h1>Registration Successful!</h1>
+            <p>Your Agency ID is: <strong>{{ agency.id }}</strong></p>
+            <p>Keep this ID safe for your records. You can use it to log in and manage your agency.</p>
+            <a href="{% url 'home' %}" class="btn-primary">Back to Home</a>
+        </div>
+    </main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-left">
+            <p>&copy; 2024 Bus Booking System. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <div class="contact-info">
+                <p>Contact Us:</p>
+                <ul>
+                    <li><a href="mailto:info@busbooking.com">info@busbooking.com</a></li>
+                    <li><a href="tel:+1234567890">+1 234 567 890</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
